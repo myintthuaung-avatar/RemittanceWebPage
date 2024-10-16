@@ -1,0 +1,1 @@
+var t=Object.defineProperty;var s=(c,e,n)=>e in c?t(c,e,{enumerable:!0,configurable:!0,writable:!0,value:n}):c[e]=n;var o=(c,e,n)=>(s(c,typeof e!="symbol"?e+"":e,n),n);class d{constructor(){o(this,"id",0);o(this,"code","");o(this,"name","");o(this,"bot_license_no","")}}export{d as A};

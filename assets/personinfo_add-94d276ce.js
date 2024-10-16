@@ -1,0 +1,1 @@
+var e=Object.defineProperty;var a=(n,o,r)=>o in n?e(n,o,{enumerable:!0,configurable:!0,writable:!0,value:r}):n[o]=r;var s=(n,o,r)=>(a(n,typeof o!="symbol"?o+"":o,r),r);class p{constructor(){s(this,"customer_info_id",0);s(this,"name","");s(this,"nrcpassport","");s(this,"phone_no","");s(this,"person_id",0)}}export{p as P};
