@@ -1,0 +1,123 @@
+export default class CustomerInformationDetail{
+    id = 0;
+  remittance_date  ="";
+  remittance_no  ="";
+  sender_customer_type_id  ="";
+  sender_customer_type_name  ="";
+  receiver_customer_type_id  ="";
+  receiver_customer_type_name  ="";
+  identity_type_id  ="";
+  identity_type_name  ="";
+  channel_id  ="";
+  channel_name  ="";
+  purpose_transaction_id  ="";
+  purpose_transaction_name  ="";
+  network_code_id  ="";
+  network_code_name  ="";
+
+//Exchange Rate
+  rate_id  ="";
+  rate_name  ="";
+  deposit_amount  ="";
+  deposit_currency_id  ="";
+  deposit_currency_name  ="";
+  deposit_exchange_rate  ="";
+  withdraw_amount  ="";
+  withdraw_currency_id  ="";
+  withdraw_currency_name  ="";
+  withdraw_exchange_rate  ="";
+
+//Sender Information
+  customer_sender_id  ="";
+  customer_sender_name  ="";
+  first_name  ="";
+  last_name  ="";
+  nrc_passport  ="";
+  phone_no  ="";
+  date_birth  ="";
+  issuse_date  ="";
+  expiry_date  ="";
+  address_document  ="";
+  email  ="";
+  business_type_id  ="";
+  business_type_name  ="";
+  business_name  ="";
+  occupations  ="";
+  address  ="";
+  address_work  ="";
+  country_id  ="";
+  sender_country_name  ="";
+  state_division_id  ="";
+  state_division_name  ="";
+  city_id  ="";
+  city_name  ="";
+  nrc_passport_image  ="";
+  selfie_image  ="";
+
+//For Deposit
+  deposit_payment_type_id  ="";
+  deposit_payment_type_name  ="";
+  deposit_payment_id  ="";
+  deposit_payment_name  ="";
+  deposit_payment_branch_id  ="";
+  deposit_payment_branch_name  ="";
+  deposit_swift_code  ="";
+  deposit_account_number  ="";
+  deposit_account_type_id  ="";
+  deposit_account_type_name  ="";
+  deposit_reference_no  ="";
+  deposit_reference  ="";
+  deposit_company_id  ="";
+  deposit_company_name  ="";
+  deposit_account_id  ="";
+  deposit_account_name  ="";
+  deposit_50  ="";
+  deposit_100  ="";
+  deposit_200  ="";
+  deposit_500  ="";
+  deposit_1000  ="";
+  deposit_5000  ="";
+  deposit_10000  ="";
+
+//For Receiver Information
+  customer_receiver_id  ="";
+  customer_receiver_name  ="";
+  receiver_name  ="";
+  receiver_nrc_passportno  ="";
+  receiver_phoneno  ="";
+  receiver_email  ="";
+  receiver_address  ="";
+  receiver_country_id  ="";
+  receiver_country_name  ="";
+  receiver_state_id  ="";
+  receiver_state_name  ="";
+  receiver_city_id  ="";
+  receiver_city_name  ="";
+
+//For Withdraw
+withdraw_reference_image = "";
+  withdraw_payment_type_id  ="";
+  withdraw_payment_type_name  ="";
+  withdraw_payment_id  ="";
+  withdraw_payment_name  ="";
+  withdraw_payment_branch_id  ="";
+  withdraw_payment_branch_name  ="";
+  withdraw_swift_code  ="";
+  withdraw_account_number  ="";
+  withdraw_account_type_id  ="";
+  withdraw_account_type_name  ="";
+  withdraw_reference_no  ="";
+  withdraw_reference  ="";
+  withdraw_company_id  ="";
+  withdraw_company_name  ="";
+  withdraw_account_id  ="";
+  withdraw_account_name  ="";
+  withdraw_50  ="";
+  withdraw_100  ="";
+  withdraw_200  ="";
+  withdraw_500  ="";
+  withdraw_1000  ="";
+  withdraw_5000  ="";
+  withdraw_10000  ="";
+    constructor(){}
+}

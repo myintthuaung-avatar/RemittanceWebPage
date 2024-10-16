@@ -1,0 +1,44 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+// @use 'vuetify/settings' with (
+//   $color-pack: false
+// );
+
+
+
+.v-container {
+    max-width: 100% !important;
+}
+
+thead.v-data-table__thead {
+background: #dddddd;
+}
+.v-list-item--nav .v-list-item-title{
+    line-height: 2rem;
+  }
+  .v-table {
+    --v-table-header-height: 40px;
+    }
+    
+  .v-toolbar-title__placeholder{
+    overflow: unset;
+    text-overflow: unset;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .v-messages__message{
+  line-height: 19px;
+  }
+  .font-weight-regular {
+    font-weight: 400 !important;
+    color: #000;
+    font-size: 16px;
+}
+.v-list-item-title{
+  font-size: 15px;
+}
