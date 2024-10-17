@@ -27,93 +27,32 @@
     <span class="text-center">Login</span>
 </v-tooltip>
     </v-app-bar>
-  
-
-    <!-- Spacer for the first app bar -->
-    <!-- <div style="height: 64px;"></div> -->
 
     <!-- Second Fixed App Bar -->
-    <v-app-bar fixed dense color="white">
+    <v-app-bar fixed dense color="white" disabled="true">
       <v-toolbar color="white">
-        <v-col cols="12" sm="1">
           <v-avatar color="white" size="40" class="ml-5" width="100px">
               <v-img src="../../../src/assets/mbf_logo.png" class="rotating-image"></v-img>
           </v-avatar>
-      </v-col>
+      <!-- </v-col> -->
         <v-toolbar-title style="font-style:normal; color:darkblue;">M-MONEY</v-toolbar-title>
         <v-spacer></v-spacer>
-        <!-- Remittance Button -->
-         <v-row>
-          <v-btn
-    variant="text" :to="{ name: 'Home' }"
-    :class="{'active': activeButton === 'home'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('home')">
-    Home
-  </v-btn>
-    <v-btn
-    variant="text" :to="{ name: 'Remittance' }"
-    :class="{'active': activeButton === 'remittance'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('remittance')">
-    Remittance
-  </v-btn>
-
-  <!-- Our Services Button -->
-  <v-btn
-    variant="text"
-    :class="{'active': activeButton === 'services'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('services')"
-  >
-    Our Services
-  </v-btn>
-
-  <!-- Contact Us Button -->
-  <v-btn
-    variant="text"
-    :class="{'active': activeButton === 'contact'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('contact')"
-  >
-    Contact Us
-  </v-btn>
-
-  <!-- About Us Button -->
-  <v-btn
-    variant="text" :to="{ name: 'Aboutus' }"
-    :class="{'active': activeButton === 'about'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('about')"
-  >
-    About Us
-  </v-btn>
-
-  <!-- Register Button -->
-  <v-btn
-    variant="text" :to="{ name: 'Register' }"
-    :class="{'active': activeButton === 'register'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('register')"
-  >
-    Register
-  </v-btn>
-
-  <!-- Money Transfer Button -->
-  <v-btn outline
-    variant="text"
-    :class="{'active': activeButton === 'money-transfer'}"
-    style="font-weight:bold; color:darkblue;"
-    @click="setActive('money-transfer')"
-  >
-    Money Transfer
-  </v-btn>
-</v-row>
         
+        <!-- Remittance Button -->
+        <v-row>
+          <v-btn
+            v-for="button in buttons"
+            :key="button.name"
+            variant="text"
+            :to="button.route"
+            :class="{'active': activeButton === button.name}"
+            style="font-weight:bold; color:darkblue;"
+            @click="setActive(button.name)">
+            {{ button.label }}
+          </v-btn>
+        </v-row>
       </v-toolbar>
     </v-app-bar>
-    
-    <!-- Spacer for the second app bar -->
     <div style="height: 48px;"></div>
 
     <!-- Main Content -->
@@ -176,6 +115,9 @@
 </template>
 <script>
 import { ref,onMounted, onBeforeUnmount  } from 'vue';
+// import { useDisplay } from 'vuetify';
+// const mobileBreakpoint = 600;
+// const { displayClasses } = useDisplay({ mobileBreakpoint })
 export default {
   setup() {
     // Define the active button
@@ -213,10 +155,48 @@ export default {
         'mdi-linkedin',
         'mdi-instagram',
       ],
+      group: null,
+      items: [
+        {
+          title: 'Foo',
+          value: 'foo',
+        },
+        {
+          title: 'Bar',
+          value: 'bar',
+        },
+        {
+          title: 'Fizz',
+          value: 'fizz',
+        },
+        {
+          title: 'Buzz',
+          value: 'buzz',
+        },
+      ],
       
       
   }
 },
+data(){
+  return{
+    drawer: false,
+    buttons : [
+      { name: 'home', label: 'Home', route: { name: 'Home' } },
+      { name: 'remittance', label: 'Remittance', route: { name: 'Remittance' } },
+      { name: 'services', label: 'Our Services', route: null },
+      { name: 'contact', label: 'Contact Us', route: null },
+      { name: 'about', label: 'About Us', route: { name: 'Aboutus' } },
+      { name: 'register', label: 'Register', route: { name: 'Register' } },
+      { name: 'money-transfer', label: 'Money Transfer', route: null },
+    ],
+  }
+},
+watch: {
+      group () {
+        this.drawer = false
+      },
+    },
 
 }
 </script>
