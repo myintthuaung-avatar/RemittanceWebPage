@@ -27,38 +27,73 @@
     <span class="text-center">Login</span>
 </v-tooltip>
     </v-app-bar>
-
-    <!-- Second Fixed App Bar -->
-    <v-app-bar fixed dense color="white" disabled="true">
-      <v-toolbar color="white">
-          <v-avatar color="white" size="40" class="ml-5" width="100px">
-              <v-img src="../../../src/assets/mbf_logo.png" class="rotating-image"></v-img>
-          </v-avatar>
-      <!-- </v-col> -->
-        <v-toolbar-title style="font-style:normal; color:darkblue;">M-MONEY</v-toolbar-title>
-        <v-spacer></v-spacer>
+    <v-app-bar app dark style="color: darkblue;" class="hidden-sm-and-down">
+      <v-img src="../../../src/assets/mbf_logo.png" class="rotating-image"></v-img>
+      <v-toolbar-title style="font-size: 16px; line-height: 2" class="ml-3">M-Money</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-tabs-window v-model="tab">
+        <v-tabs-window-item
+           v-for="button in buttons"
+          :key="button"
+          :value="'tab-' + button"   show-arrows>
+        <v-btn
         
-        <!-- Remittance Button -->
-        <v-row>
-          <v-btn
-            v-for="button in buttons"
-            :key="button.name"
-            variant="text"
-            :to="button.route"
-            :class="{'active': activeButton === button.name}"
-            style="font-weight:bold; color:darkblue;"
-            @click="setActive(button.name)">
-            {{ button.label }}
-          </v-btn>
-        </v-row>
-      </v-toolbar>
+        :key="button.name"
+        :variant="buttonVariant"
+        :to="button.route"
+        :class="{'active': activeButton === button.name}"
+        @click="setActive(button.name)">
+        {{ button.label }}
+      </v-btn>
+        </v-tabs-window-item>
+      </v-tabs-window>
     </v-app-bar>
-    <div style="height: 48px;"></div>
+    <v-app-bar app class="hidden-sm-and-up" style="top: 0%;" color="#FFF">
+        <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-    <!-- Main Content -->
-    <v-main @scroll.passive="onScroll" class="ml-1 mt-n11">
+        <v-toolbar-title>M-Money</v-toolbar-title>
+      </v-app-bar>
+      <v-navigation-drawer
+        v-model="drawer"
+        :location="$vuetify.display.mobile ? 'bottom' : undefined"
+        temporary
+      >
+      <v-list density="compact">
+  
+        <v-list-item
+          v-for="(item, i) in buttons"
+          :key="i"
+          :value="item"
+          color="blue"
+        >
+          <template v-slot:prepend>
+            <v-icon :icon="item.icon"></v-icon>
+          </template>
+  
+          <v-list-item-title v-text="item.label"></v-list-item-title>
+        </v-list-item>
+      </v-list>
+      </v-navigation-drawer>
+
+    <v-main>
       <router-view/>
     </v-main>
+    
+    <v-btn
+      v-scroll="onScroll"
+      v-show="fab"
+      fab
+      dark
+      fixed
+      bottom
+      right
+      color="primary"
+      @click="toTop"
+      small
+    >
+      <v-icon>mdi-chevron-up</v-icon>
+    </v-btn>
+
     <v-footer color="#0a1775"
     class="text-center d-flex flex-column"
   >
@@ -100,24 +135,23 @@
 
 
     <v-divider></v-divider>
-
-    <div>
-      
-    </div>
-  </v-footer>
     <v-spacer></v-spacer>
     <v-row align="center" justify="center">
     <v-col cols="auto" align="right">
       <v-btn icon="mdi-chevron-up" v-if="fab" bottom fixed right color="#0a1775" @click="toTop" class="fab-btn"></v-btn>
     </v-col>
     </v-row>
+    <div>
+      
+    </div>
+  </v-footer>
+  
   </v-app>
 </template>
+
 <script>
+import { mapState } from "vuex";
 import { ref,onMounted, onBeforeUnmount  } from 'vue';
-// import { useDisplay } from 'vuetify';
-// const mobileBreakpoint = 600;
-// const { displayClasses } = useDisplay({ mobileBreakpoint })
 export default {
   setup() {
     // Define the active button
@@ -126,6 +160,7 @@ export default {
     // Method to set the active button
     const setActive = (buttonName) => {
       activeButton.value = buttonName;
+      this.buttonVariant = this.buttonVariant === 'text' ? 'outlined' : 'text';
     };
     const onScroll = (e) => {
       if (typeof window === 'undefined') return;
@@ -155,50 +190,97 @@ export default {
         'mdi-linkedin',
         'mdi-instagram',
       ],
-      group: null,
-      items: [
-        {
-          title: 'Foo',
-          value: 'foo',
-        },
-        {
-          title: 'Bar',
-          value: 'bar',
-        },
-        {
-          title: 'Fizz',
-          value: 'fizz',
-        },
-        {
-          title: 'Buzz',
-          value: 'buzz',
-        },
-      ],
       
       
   }
 },
-data(){
-  return{
-    drawer: false,
-    buttons : [
-      { name: 'home', label: 'Home', route: { name: 'Home' } },
-      { name: 'remittance', label: 'Remittance', route: { name: 'Remittance' } },
-      { name: 'services', label: 'Our Services', route: null },
-      { name: 'contact', label: 'Contact Us', route: null },
-      { name: 'about', label: 'About Us', route: { name: 'Aboutus' } },
-      { name: 'register', label: 'Register', route: { name: 'Register' } },
-      { name: 'money-transfer', label: 'Money Transfer', route: null },
+  data() {
+    return {
+      fab: false,
+      currentUrl: "",
+      ecurrentUrl: "",
+      dialog: false,
+      valid: true,
+      selectedLanguage: "",
+
+      change: true,
+      drawer: false, // Hide mobile side menu by default
+      items: [],
+      //mmList:[],
+      buttons : [
+      { name: 'home', label: 'Home', route: { name: 'Home' },icon: 'mdi-clock' },
+      { name: 'remittance', label: 'Remittance', route: { name: 'Remittance' },icon: 'mdi-clock' },
+      { name: 'services', label: 'Our Services', route: null ,icon: 'mdi-clock'},
+      { name: 'contact', label: 'Contact Us', route: null ,icon: 'mdi-clock'},
+      { name: 'about', label: 'About Us', route: { name: 'Aboutus' },icon: 'mdi-clock' },
+      { name: 'register', label: 'Register', route: { name: 'Register' } ,icon: 'mdi-clock'},
+      { name: 'money-transfer', label: 'Money Transfer', route: null,icon: 'mdi-clock' },
     ],
-  }
-},
-watch: {
-      group () {
-        this.drawer = false
-      },
+
+    };
+  },
+  computed: mapState(["languages"]),
+
+  updated() {
+    const hostName = window.location.protocol + "//" + window.location.host;
+    //this.currentUrl = hostName + "#latbook" ;
+    this.currentUrl = hostName + this.$router.currentRoute.fullPath;
+    //alert(this.currentUrl)
+    this.ecurrentUrl = encodeURIComponent(this.currentUrl);
+    //alert(this.ecurrentUrl);
+  },
+
+  created() {
+    this.selectedLanguage = this.$store.state.curLanguage;
+    this.items = this.enList;
+    //Vue.i18n.set("en");
+  },
+  methods: {
+    Change() {
+      if (this.change) {
+        this.change = false;
+        this.items = this.mmList;
+      }
+      // else {
+      //   this.change = true;
+      //   this.items = this.enList;
+      // }
+      this.$emit("eventname", this.change);
+    },
+    ChangeEng() {
+      if (!this.change) {
+        this.change = true;
+        this.items = this.enList;
+      }
+      this.$emit("eventname", this.change);
     },
 
-}
+    onScroll(e) {
+      if (typeof window === "undefined") return;
+      const top = window.pageYOffset || e.target.scrollTop || 0;
+      this.fab = top > 20;
+    },
+
+  },
+
+  //  watch: {
+  //     selectedLanguage: function (newLang) {
+  //       if (this.change) {
+  //         this.change = false;
+  //       this.items = this.mmList;
+  //         Vue.i18n.set(newLang.short);
+  //         this.$store.commit("setLanguage", newLang.short);
+
+  //       }
+  //       else{
+  //          this.change = true;
+  //       this.items = this.enList;
+  //         Vue.i18n.set(newLang.long);
+  //         this.$store.commit("setLanguage", newLang.long);
+  //       }
+  //     },
+  //   },
+};
 </script>
 <style scoped>
 /* Style for active button */
@@ -221,5 +303,28 @@ watch: {
   height: 100px;
   /* Adjust the height as needed */
   animation: rotate 5s linear infinite;
+}
+.responsive-container {
+  background-color: white;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Tablet and Mobile */
+  .responsive-container {
+    background-color: white;
+    padding: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile */
+  .responsive-container {
+    background-color: white;
+    padding: 20px;
+  }
+}
+.barhight{
+  height: 5%;
 }
 </style>
