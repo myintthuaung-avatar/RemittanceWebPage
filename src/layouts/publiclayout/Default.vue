@@ -326,7 +326,7 @@ export default {
   /* Adjust the width as needed */
   height: 100px;
   /* Adjust the height as needed */
-  animation: rotate 5s linear infinite;
+  animation: rotate 30s linear infinite;
 }
 @keyframes rotate {
   from {
