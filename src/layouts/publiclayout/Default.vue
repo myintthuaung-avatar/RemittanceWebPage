@@ -126,7 +126,7 @@
           <v-col cols="12" md="2">
             <v-img src="../../../src/assets/mbf_logo.png" width="60px" height="80px;" class="mt-10"></v-img>
             <h4 class="mt-n10" color="white">M-Money</h4>
-            <h5 class="mt-9" color="white">Mahar Bawga Finance Co.,ltd</h5>
+            <h5 class="mt-9" color="white">Mahar Bawga Money Co.,ltd</h5>
           </v-col>
           <v-col cols="12" md="5">
             <h4 class="mt-9"><v-icon>mdi-currency-sign</v-icon>Remittance</h4>
