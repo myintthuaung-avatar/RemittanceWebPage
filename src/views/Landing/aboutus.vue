@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-row dense>
-            <v-img src="/src/assets/nature.webp" height="480px" cover></v-img>
+            <v-img src="/src/assets/nature.webp" height="400px" cover></v-img>
         </v-row>
         <v-row dense style="margin-top:30px ;">
             <v-card>                       

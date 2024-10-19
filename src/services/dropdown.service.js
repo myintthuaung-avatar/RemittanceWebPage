@@ -20,6 +20,7 @@ class DropDownService {
     return globals.$http.get("/DropDown/GetAllCashBookType");
   }
   GetCountryList(){
+    console.log("test");
     return globals.$http.get("/DropDown/GetCountry");
   }
   GetStateDivisionByCountry(country_id){

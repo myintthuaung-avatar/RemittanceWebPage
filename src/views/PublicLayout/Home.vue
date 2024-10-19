@@ -1,9 +1,9 @@
 <template>
   <div>
       <v-row dense>
-          <v-col cols="12" md="12" class="">
+          <v-col cols="12" md="12" class="" height="30%">
             <v-card>
-            <v-carousel hide-delimiters>
+            <v-carousel hide-delimiters  style="height: 650px;">
               <v-carousel-item
                 v-for="(item,i) in items"
                 :key="i" class="carousel-image" 
@@ -14,7 +14,7 @@
           </v-card>
           </v-col>
       </v-row>
-      <marquee color="blue" class="mt-2"><h2 style="color: darkblue; font-family: 'Times New Roman', serif;">Let's Transfer Money from Thailand to Myanmar. ₿ Trustworth ! 💵💰💳 Accurate ! 💵  Fast! </h2></marquee>
+      <marquee color="blue" class="mt-2"><h2 style="color: darkblue; font-family: 'Times New Roman', serif;">Let's Transfer Money from Thailand to Myanmar.  Trustworth !  Accurate !  Fast! </h2></marquee>
       <v-col cols="12" md="12" class="mt-n7">
         <v-row dense class="mt-n4">
           <v-col cols="12" md="6" class="mt-7">
@@ -42,14 +42,14 @@
               </v-col>
               <v-col cols="12" md="4" class="mt-6">
                 <div class=" imageBorder">
-                    <img src="\transfer.gif" width="145px" height="130px" style="padding-left: 5px; padding-top: 5px;">
+                    <img src="\money.jpg"  width="145px" height="130px" style="padding-left: 5px; padding-top: 5px;">
                     <h4  style="color:darkblue;">Money Transfer</h4>
                 </div>
             </v-col> 
              
           <v-col cols="12" md="4" class="mt-6">
               <div class=" imageBorder">
-                  <img src="\map.gif" width="145px" height="130px" style="padding-left: 5px; padding-top: 5px;">
+                  <img src="\world.gif" width="145px" height="130px" style="padding-left: 5px; padding-top: 5px;">
                   <h4  style="color:darkblue;">Where are we located?</h4>
               </div>
           </v-col>  

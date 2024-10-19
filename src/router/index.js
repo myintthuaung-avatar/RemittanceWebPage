@@ -192,13 +192,26 @@ const routes = [
   {
     path: "/Register",
     name: "Register",
-    component: () => import('@/views/Register/Register.vue'),
+    component: () => import('@/views/Landing/Register.vue'),
     meta: { id: 1, layout: PublicLayout}
   },
   {
     path: "/Aboutus",
     name: "Aboutus",
     component: () => import('@/views/Landing/aboutus.vue'),
+    meta: { id: 1, layout: PublicLayout}
+  }, 
+  {
+
+    path: "/Ourservices",
+    name: "Ourservices",
+    component: () => import('@/views/Landing/service.vue'),
+    meta: { id: 1, layout: PublicLayout}
+  },
+  {
+    path: "/Contactus",
+    name: "Contactus",
+    component: () => import('@/views/Landing/contactus.vue'),
     meta: { id: 1, layout: PublicLayout}
   }, 
 ]

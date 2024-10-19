@@ -2,9 +2,9 @@
     <div style="max-width: auto; max-height: auto;">
         <v-form autocomplete="off" ref="form" v-model="valid">
             <v-row align="center" class="mt-1" justify="center">
-                <v-col cols="12" md="10">
+                <v-col cols="12" md="12">
                     <v-card flat class="mx-auto">
-                        <v-img src='../../../src/assets/transf-1.jpg' height="500px" cover>
+                        <v-img src='../../../src/assets/Landing/reg_back4.webp' height="300px" cover>
                             <v-card-title class="text-h1 text-blue text-center d-flex flex-column">
                                 <p class="mt-2 text-body-2 font-weight-bold">
                                     M Moneyနဲ့ ငွေလွှဲဖို့ ခုပဲ Register လုပ်လိုက်ရအောင်
@@ -22,16 +22,16 @@
                     </v-card>
                 </v-col>
             </v-row>
+            
             <v-row>
-                <v-col cols="12" md="12">
-                    <v-card style="background-color: #AED8FF;">
-                        <v-col cols="12" md="10">
-                            <h1 style="color: blue;" align="center" class="mt-2">How to Register</h1>
-                            <v-row align="center" class="mt-1" justify="center">
+                <v-col cols="12" md="12" sm="6">
+                    <v-card flat style="background-color: #AED8FF;">
+                        <v-col cols="12" md="10" sm="6" style="margin-left: 9cap;">
+                            <h1 style="color: black;" align="center" class="mt-2">How to Register</h1>
+                            <v-row align="center" justify="center" class="mt-1">
                                 <v-col cols="12" md="4">
-                                    <v-img src="../../../src/assets/Landing/phone.webp" height="200"></v-img>
+                                    <v-img src="../../../src/assets/Landing/phone.webp" height="200" we></v-img>
                                     <p style="text-align: center;">1.Enter Phone No</p>
-                                    <!-- <label style="align-items: center">1.Enter Phone No</label> -->
                                 </v-col>
                                 <v-col cols="12" md="4">
                                     <v-img src="../../../src/assets/Landing/otp.webp" height="200"></v-img>
@@ -39,30 +39,31 @@
                                 </v-col>
                                 <v-col cols="12" md="4">
                                     <v-img src="../../../src/assets/Landing/terms.webp" height="200"></v-img>
-                                    <p style="text-align: center;">3. Review Terms of Service and Privacy Policy then
-                                        click “Accept” to start </p>
+                                    <p style="text-align: center;">3. Review Terms of Service and Privacy Policy </p>
                                 </v-col>
-                                
+
                             </v-row>
-                            <v-row align="center" class="mt-1" justify="center">
+                            <v-row align="center" class="mt-2" justify="center">
                                 <v-col cols="12" md="4">
                                     <v-img src="../../../src/assets/Landing/fillInfo.png" height="200"></v-img>
                                     <p style="text-align: center;">4. Fill your information in Register Form </p>
                                 </v-col>
                                 <v-col cols="12" md="4">
                                     <v-img src="../../../src/assets/Landing/workpermit.png" height="200"></v-img>
-                                    <p style="text-align: center;">6.Upload your Passport and WorkPermit</p>
-                                    <p style="text-align: center;">7.Click Submit</p>
+                                    <p style="text-align: center;">5.Upload your Passport and WorkPermit</p>
+                                    <p style="text-align: center;">6.Click Submit</p>
                                 </v-col>
                                 <v-col cols="12" md="4">
                                     <v-img src="../../../src/assets/approve.jpg" height="200"></v-img>
-                                    <p style="text-align: center;">8.Email will send to approve and Username and Password for Login</p>
+                                    <p style="text-align: center;">7.Email will send to approve and Username and
+                                        Password for Login</p>
                                 </v-col>
                             </v-row>
-                            <v-row align="center" class="mt-1" justify="center">
+                            <v-row align="center" class="mt-2" justify="center">
                                 <v-col cols="12" md="4">
                                     <v-img src="../../../src/assets/Landing/Thank.webp" height="200"></v-img>
-                                    <p style="text-align: center;">Successful register and waiting for approval by SMS in 1-3 business days. After which, you can login and use M-Money</p>
+                                    <p style="text-align: center;">Successful register and waiting for approval by SMS
+                                        in 1-3 business days. After which, you can login and use M-Money</p>
                                 </v-col>
                             </v-row>
                         </v-col>
@@ -104,6 +105,17 @@ export default {
 }
 </script>
 <style scoped>
+.bordered-container {
+    border: 1px solid #000;
+    /* Adjust the color and width as needed */
+    border-radius: 4px;
+    /* Optional: Add rounded corners */
+    padding: 3px;
+    /* Optional: Add padding inside the border */
+    text-align: center;
+    /* Ensure text is centered */
+}
+
 /* .v-img:hover {
     display: block;
     transition: transform 0.5s ease-in-out;
