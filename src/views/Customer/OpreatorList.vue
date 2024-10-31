@@ -24,6 +24,14 @@
                         </template>
                         <span class="text-center">Excel Import</span>
                     </v-tooltip>
+                    <v-tooltip location="bottom">
+                        <template v-slot:activator="{ props }" >
+                            <v-btn class="ml-5" size="small" variant="outlined" color="warning" @click="MultipleImport()" v-bind="props">
+                                Multiple Import
+                            </v-btn>
+                        </template>
+                        <span class="text-center">Excel Import</span>
+                    </v-tooltip>
             </v-col>
             <v-col cols="12" md="12" class="">
             <v-card>
@@ -113,6 +121,7 @@
             </v-col>
             <CustomerDetailView ref="CustomerDetailModal" @AfterSaved="ResetFilter()" />
             <ExcelImportList ref="ExcelImportListModal" @AfterSave="ResetFilter()"/>
+            <OpreatorMultipleEntry ref="MultipleEntryModal" @AfterSave="ResetFilter()"/>
         </v-row>
     </v-col>
 </div>
@@ -126,8 +135,9 @@ import DataTableHelper from "@/components/base/DataTableHelper";
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import ExcelImportList from "./ExcelImportList.vue";
+import OpreatorMultipleEntry from "./OpreatorMultipleEntry.vue";
 export default {
-    components:{DataTableHelper,CustomerDetailView,VueDatePicker,ExcelImportList},
+    components:{DataTableHelper,CustomerDetailView,VueDatePicker,ExcelImportList,OpreatorMultipleEntry},
     data() {
         return {
             route:"/customerinfodrawer",
@@ -189,6 +199,9 @@ export default {
         },
         ExcelImport(){
             this.$refs.ExcelImportListModal.Show();
+        },
+        MultipleImport(){
+            this.$refs.MultipleEntryModal.Show();
         },
         EditItem(item) {
             var vm =this;

@@ -111,7 +111,6 @@ class CustomerInformationService{
         return globals.$http.post("/ApprovedInformation/SaveOrUpdateSuperAdminApproved?id="+ id);
     }
     SendData(datalist){
-        alert("data"+datalist)
           return globals.$http.post("ApprovedInformation/SendData",datalist);
       }
     Delete(id) {

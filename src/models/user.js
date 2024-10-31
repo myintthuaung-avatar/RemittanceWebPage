@@ -8,6 +8,9 @@ export default class User {
     role='';
     company_id=null;
     department_id = null;
+    email='';
+    phoneno='';
+    otp="";
     constructor() {
 
     }

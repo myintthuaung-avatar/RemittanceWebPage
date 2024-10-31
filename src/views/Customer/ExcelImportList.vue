@@ -123,7 +123,7 @@ import '@vuepic/vue-datepicker/dist/main.css';
                     headers: [
                     // { title: 'Action', width: 220, key: 'id' },
                     { title: 'Remittance No', key: 'remittance_no', width: 220 },
-                    { title: 'Status', key: 'status', width: 220},
+                    // { title: 'Status', key: 'status', width: 220},
                     { title: 'Remittance Date', key: 'remittance_date', width: 220 },
                     { title: 'Sender Name', key: 'customer_sender_name', width: 220 },
                     { title: 'Sender PhoneNo', key: 'phone_no', width: 220 },

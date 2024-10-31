@@ -4,11 +4,18 @@ import DefaultLayout from '@/layouts/default/Default.vue'
 import LogInLayout from '@/layouts/login/Default.vue'
 import SettingLayout from '@/layouts/settings/Default.vue';
 import PublicLayout from '@/layouts/publiclayout/Default.vue'
+import RegisterLayout from '@/layouts/Register/Default.vue';
 import { isAuthenticated } from './route-check';
 
 const routes = [
   
  
+  {
+    path: "/dashboard1",
+    name: "Dashboard1",
+    component: () => import(/* webpackChunkName: "home" */ '@/views/Register/TransactionList.vue'),
+    meta: { id: 1, layout: RegisterLayout, requiresAuth: true, roles : ["USER"], }
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -31,6 +38,12 @@ const routes = [
     path: "/approver",
     name: "ApproverList",
     component: () => import(/* webpackChunkName: "home" */ '@/views/Customer/ApproverList.vue'),
+    meta: { id: 2, layout: DefaultLayout, requiresAuth: true, roles : ["ADMINISTRATOR", "APPROVER","CHECKER","OPREATOR"], }
+  },
+  {
+    path: "/senderinformation",
+    name: "SenderInformation",
+    component: () => import(/* webpackChunkName: "home" */ '@/views/SenderInformation/List.vue'),
     meta: { id: 2, layout: DefaultLayout, requiresAuth: true, roles : ["ADMINISTRATOR", "APPROVER","CHECKER","OPREATOR"], }
   },
   {
@@ -192,7 +205,7 @@ const routes = [
   {
     path: "/Register",
     name: "Register",
-    component: () => import('@/views/Landing/Register.vue'),
+    component: () => import('@/views/PublicLayout/Register.vue'),
     meta: { id: 1, layout: PublicLayout}
   },
   {

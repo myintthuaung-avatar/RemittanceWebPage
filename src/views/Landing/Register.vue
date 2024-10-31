@@ -3,7 +3,7 @@
         <h1>M-Money</h1>
     </div> -->
     <div
-        style=" background-size: cover; margin-top: 0;
+        style=" background-size: cover; margin-top: 2cap;
          background-repeat: no-repeat; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
         <v-form autocomplete="off" ref="form" v-model="valid">
             <v-card class="mx-auto my-8" elevation="16" max-width="500px">
@@ -12,25 +12,7 @@
                     <!-- <v-icon icon="mdi-account-plus"></v-icon>  -->
                     Create a new Account
                 </v-card-title>
-                <!-- <v-card-subtitle style="text-align: center; font-weight: bold">
-                    It's quick and easy.
-                </v-card-subtitle> -->
-                <!-- <div>
-                    <v-row>
-                        <v-col cols="12" sm="1">
-                            <v-avatar color="white" size="40" class="ml-5" width="100px">
-                                <v-img src="../../../src/assets/mbf_logo.png" class="rotating-image"></v-img>
-                            </v-avatar>
-                        </v-col>
-                        <v-col cols="12" sm="10">
-                            <figure>
-                                <figcaption
-                                    style="font-family:Georgia, 'Times New Roman', Times, serif; font-style: oblique;font-size: 20px;">
-                                    Remittance System</figcaption>
-                            </figure>
-                        </v-col>
-                    </v-row>
-                </div> -->
+                
                 <v-divider></v-divider>
                 <v-col cols="12" sm="12">
                     <!-- Form fields for the first card -->
@@ -94,9 +76,9 @@
                     <v-row align="center" justify="center">
                         <v-col cols="auto" sm="12" class="d-flex justify-center">
                             <v-card-actions>
-                                <v-btn width="200" color="primary" variant="outlined" @click="nextCard" rounded>
+                                <v-btn width="180" variant="outlined" rounded>
                                     Sign Up
-                                    <v-icon icon="mdi-chevron-right" end></v-icon>
+                                    <!-- <v-icon icon="mdi-chevron-right" end></v-icon> -->
                                 </v-btn>
                             </v-card-actions>
                         </v-col>
@@ -230,8 +212,10 @@ export default {
 
 }
 
-.v-btn:hover {
-    background-color: #AED8FF;
+.v-btn{
+    background-color: blue;
+    color:  white !important;
+    text-shadow: 5cap;
 }
 
 .custom-label {
@@ -239,13 +223,13 @@ export default {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.rotating-image {
+/* .rotating-image {
     display: block;
 
     width: 100px;
-    /* Adjust the width as needed */
+    /* Adjust the width as needed 
     height: 100px;
-    /* Adjust the height as needed */
+    /* Adjust the height as needed 
     animation: rotate 5s linear infinite;
 }
 
@@ -257,7 +241,7 @@ export default {
     to {
         transform: rotate(360deg);
     }
-}
+} */
 
 /* .blurred-image {
   filter: blur(5px);
